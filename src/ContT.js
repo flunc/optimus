@@ -1,6 +1,6 @@
 //:: Monad m => Type m -> ((a -> m r) -> m r) -> ContT r m a
 const ContT = M => {
-  var _ContT = run => ({
+  const _ContT = run => ({
     run:   run,
     map:   f => _ContT(c => run(a => c(f(a)))),
     ap:    other => _ContT(c => run(g => other.run(a => c(g(a))))),
